@@ -1,0 +1,4 @@
+{% macro render_forms(field) %}
+<label class="form-label">{{ field.label }}</label>
+{{ field(**kwargs) | safe }}
+{% endmacro %}
