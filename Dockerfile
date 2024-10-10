@@ -7,6 +7,7 @@ ENV PYTHONUNBUFFERED 1
 RUN apt-get update && apt-get install -y --no-install-recommends
 # Create and set the working directory
 WORKDIR /app
+#RUN chmod -R 777 ./app/files
 
 # Copy only the requirements file first to leverage Docker caching
 COPY requirements.txt .

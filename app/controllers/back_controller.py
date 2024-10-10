@@ -36,4 +36,6 @@ def login():
 @excel_routes.route("/actions", methods=["POST"])
 def actions():
     if request.method == "POST":
-        return "Generando los archivos de importacion a gephi"
+        excel_file = request.files["excel_general"]
+        excel_name = secure_filename(excel_file.filename)
+        return "Generando los archivos de importacion a gephi " + excel_name
