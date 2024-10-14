@@ -2,8 +2,10 @@ import json
 import os
 
 from flask import Blueprint, jsonify, redirect, render_template, request
-import controllers.forms_controller as forms
 from werkzeug.utils import secure_filename
+import controllers.forms_controller as forms
+import controllers.process_controller as processor
+
 
 
 
@@ -41,4 +43,5 @@ def actions():
         excel_file = request.files["excel_general"]
         excel_name = secure_filename(excel_file.filename)
         excel_file.save("./app/files/" + excel_name)
+        processor.process(excel_name)
         return "Generando los archivos de importacion a gephi " + excel_name
