@@ -10,6 +10,8 @@ def jsontoNodos(json):
     nodes = pd.unique(df.values.ravel())
     nodes_df = pd.DataFrame({'id': range(1, len(nodes) + 1), 'Label': nodes})
     print(nodes_df)
+    nodes_df.to_csv('nodospy.csv',encoding='utf8')
+    
 
 def process(excel_filename):
     excel = "./app/files/" + excel_filename
