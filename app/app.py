@@ -1,10 +1,10 @@
 import json
 import os
-from flask import Flask,render_template
+from flask import Flask,send_from_directory
 
 from controllers.back_controller import excel_routes
 app = Flask("_name_")
-UPLOAD_FOLDER = "./app/files"
+UPLOAD_FOLDER = "files"
 app.register_blueprint(excel_routes)
 app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
 
